@@ -1,6 +1,4 @@
-package ss4_oop.bai_tap;
-
-import java.util.Scanner;
+package ss4_oop.bai_tap_stopWatch;
 
 public class main {
     public static void main(String[] args){
