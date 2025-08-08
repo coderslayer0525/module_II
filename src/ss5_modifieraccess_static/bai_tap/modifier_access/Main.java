@@ -1,6 +1,6 @@
-package ss5_modifieraccess_static.bai_tap.modifierac;
+package ss5_modifieraccess_static.bai_tap.modifier_access;
 
-public class main {
+public class Main {
     public static void main(String[] args) {
         Circle circle = new Circle();
         System.out.println("radius :"+ circle.getRadius());
