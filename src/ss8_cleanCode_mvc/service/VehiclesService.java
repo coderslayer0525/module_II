@@ -1,4 +1,6 @@
+/*
 package ss8_cleanCode_mvc.service;
 
-public class VehiclesService {
+public class interface VehiclesService {
 }
+*/

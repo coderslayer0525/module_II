@@ -38,4 +38,3 @@ public class Trucks {
                         ", name='" + name ;
     }
 }
-}

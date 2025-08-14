@@ -1,3 +1,4 @@
+/*
 package ss8_cleanCode_mvc.controller;
 
 import ss8_cleanCode_mvc.service.TrucksService;
@@ -44,4 +45,4 @@ public class TrucksController {
             }
         }
     }
-}
+}*/

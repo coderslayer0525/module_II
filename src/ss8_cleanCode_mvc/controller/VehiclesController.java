@@ -1,3 +1,4 @@
+/*
 package ss8_cleanCode_mvc.controller;
 
 import ss8_cleanCode_mvc.entity.Cars;
@@ -46,4 +47,4 @@ public class VehiclesController {
             }
         }
     }
-}
+}*/
