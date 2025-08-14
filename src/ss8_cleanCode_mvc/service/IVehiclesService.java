@@ -1,4 +1,10 @@
 package ss8_cleanCode_mvc.service;
 
-public interface  IVehiclesService {
+import ss8_cleanCode_mvc.entity.Vehicles;
+
+import java.util.ArrayList;
+
+public interface IVehiclesService {
+    ArrayList<Vehicles> findAll();
+    boolean add(Vehicles vehicles);
 }

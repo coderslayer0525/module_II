@@ -1,44 +1,28 @@
-/*
 package ss8_cleanCode_mvc.repository;
 
-import ss8_CleanCode_mvc.entity.Vehicles;
+import ss8_cleanCode_mvc.entity.Vehicles;
+
+import java.lang.reflect.Array;
 import java.util.ArrayList;
 
 public class VehiclesRepository implements IVehiclesRepository {
-    private ArrayList<Vehicles> vehiclesList = new ArrayList<>();
-
-    @Override
-    public ArrayList<Vehicles> findAll() {
-        return vehiclesList;
+    private  static ArrayList<Vehicles> vehiclesList = new ArrayList<>();
+    static {
+        Vehicles trucks = new Vehicles();
+        Vehicles cars = new Vehicles();
+        Vehicles motorbikes = new Vehicles();
+        vehiclesList.add(trucks);
+        vehiclesList.add(cars);
+        vehiclesList.add(motorbikes);
     }
-
     @Override
-    public Vehicles findByOwner(String ownerName) {
-        for (Vehicles v : vehiclesList) {
-            if (v.getOwnerName().equalsIgnoreCase(ownerName)) {
-                return v;
-            }
-        }
-        return null;
-    }
+    public ArrayList<Vehicles> findAll(){
 
-    @Override
-    public Vehicles findByNumberPlate(String numberPlate) {
-        for (Vehicles v : vehiclesList) {
-            if (v.getNumberPlate().equalsIgnoreCase(numberPlate)) {
-                return v;
-            }
-        }
-        return null;
+        return  vehiclesList;
     }
-
     @Override
-    public void add(Vehicles vehicle) {
-        vehiclesList.add(vehicle);
+    public  boolean add(Vehicles vehicles){
+        vehiclesList.add(vehicles);
+        return true;
     }
-
-    @Override
-    public void remove(String numberPlate) {
-        vehiclesList.removeIf(v -> v.getNumberPlate().equalsIgnoreCase(numberPlate));
-    }
-}*/
+}

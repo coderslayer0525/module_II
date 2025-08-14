@@ -1,40 +1,37 @@
 package ss8_cleanCode_mvc.entity;
-
-public abstract  class Vehicles{
+import ss8_cleanCode_mvc.service.VehiclesService;
+import ss8_cleanCode_mvc.repository.VehiclesRepository;
+import ss8_cleanCode_mvc.controller.VehiclesController;
+import ss8_cleanCode_mvc.view.VehiclesView;
+public class Vehicles {
     private int id;
-    private String name;
+    private String  model;
 
-    public Vehicles() {
+    public Vehicles(){
     }
-
-    public Vehicles(int id, String name) {
+    public Vehicles(int id, String model){
         this.id = id;
-        this.name = name;
+        this.model = model;
     }
-    public Vehicles(int id) {
-        this.id = id;
-    }
-
-    public int getId() {
-        return id;
-    }
-
-    public void setId(int id) {
+    public Vehicles(int id){
         this.id = id;
     }
-
-    public String getName() {
-        return name;
+    public int getId(){
+        return  id;
     }
-
-    public void setName(String name) {
-        this.name = name;
+    public void  setId(int id){
+        this.id = id;
     }
-
+    public String getModel(){
+        return  model;
+    }
+    public void  setModel(String model){
+        this.model = model;
+    }
     @Override
-    public String toString() {
+    public String toString(){
         return
                 "id=" + id +
-                        ", name='" + name ;
+                        ", model'" + model;
     }
 }

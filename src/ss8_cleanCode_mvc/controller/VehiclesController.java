@@ -1,50 +1,54 @@
-/*
 package ss8_cleanCode_mvc.controller;
 
-import ss8_cleanCode_mvc.entity.Cars;
 import ss8_cleanCode_mvc.entity.Vehicles;
+
 import ss8_cleanCode_mvc.service.IVehiclesService;
+import ss8_cleanCode_mvc.view.VehiclesView;
 import ss8_cleanCode_mvc.service.VehiclesService;
-import ss8_cleanCode_mvc.view.CarsView;
 
 import java.util.ArrayList;
 import java.util.Scanner;
 
 public class VehiclesController {
     private IVehiclesService vehiclesService = new VehiclesService();
-    public void displayMenu(){
-        Scanner scanner = new Scanner(System.in);
-        final int MODELCARS = 1;
-        final int SEARCHOWNER = 2;
-        final int SEARCHNUMBERPLATE = 3;
-        final  int BACKMENU = 4;
+
+    public void displayMenu() {
+
+        Scanner sc = new Scanner(System.in);
+        final int DISPLAYOPPTIONS = 1;
+        final int ADDVEHICLES = 2;
+        final int SHOWVEHICLESINFORMATIONS = 3;
+        final int REMOVEVEHICLES = 4;
         boolean flag = true;
-        while (flag){
-            System.out.println("-- Kiêm tra tình trạng và vị trí --  ");
-            System.out.println(" -- Nhập thông tin --" +
-                    "\n 1. Nhập Model xe" +
-                    "\n 2. Nhập tên chủ sở hữu" +
-                    "\n 3. Nhâập biển số xe" +
-                    "\n 4. Quay lại sảnh chính ");
-            int choice = Integer.parseInt(scanner.nextLine());
-            switch (choice){
-                case 1:
-                    System.out.println("-xem tình trang xe và vị trí GPRS hiện tại-");
-                    ArrayList<Vehicles> vehiclesList = this.vehiclesService.findAll();
-                    CarsView.display(vehiclesList);
+        while (flag) {
+            System.out.println("-<Global Vehicles Databases>- ");
+            System.out.println("----> Functions table <----" +
+                    "\n 1. Vehicles Databases" +
+                    "\n 2. Add new Vehicles on Databases " +
+                    "\n 3. Vehicles Specifications" +
+                    "\n 4. Remove Vehicle out of Databases " +
+                    "\n 5. Back Main Menu.");
+            int choice = Integer.parseInt(sc.nextLine());
+            switch (choice) {
+                case DISPLAYOPPTIONS:
+                    System.out.println("--Hiện thị Danh sách phương tiện--");
+                    ArrayList<Vehicles> vehiclesArrayList = vehiclesService.findAll();
+                    VehiclesView.display(vehiclesArrayList);
                     break;
-                case 2:
-                    System.out.println("Tim kiem  ten chu so huu ");
+                case ADDVEHICLES:
+                    System.out.println("-Thêm một Phương tiện mới-");
+                    System.out.println("Đã thêm.");
                     break;
-                case 3:
-                    System.out.println("-tim kiem bien so xe-");
+                case SHOWVEHICLESINFORMATIONS:
+                    System.out.println("-xem thông số ky thuat-");
                     break;
-                case 4:
-                    System.out.println(" quay lai sanh chinh");
+                case REMOVEVEHICLES:
+                    System.out.println("-Gỡ/ xóa phương tiện-");
+                    System.out.println("--Đã xóa--");
                     break;
-                default:
+                default :
                     flag = false;
             }
         }
     }
-}*/
+}
