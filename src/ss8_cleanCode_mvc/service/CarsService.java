@@ -1,8 +1,7 @@
 package ss8_cleanCode_mvc.service;
-
+import ss8_cleanCode_mvc.entity.Cars;
 import ss8_cleanCode_mvc.repository.CarsRepository;
 import ss8_cleanCode_mvc.repository.ICarsRepository;
-import ss8_cleanCode_mvc.entity.Cars; // <-- thêm dòng này
 
 import java.util.ArrayList;
 

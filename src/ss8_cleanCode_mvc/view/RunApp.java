@@ -1,5 +1,7 @@
 package ss8_cleanCode_mvc.view;
-import ss8_cleanCode_mvc.controller.VehiclesController;
+import ss8_cleanCode_mvc.controller.CarsController;
+import ss8_cleanCode_mvc.controller.TrucksController;
+
 import  java.util.Scanner;
 
 
@@ -8,7 +10,8 @@ public class RunApp {
         displayMain();
     }
     public static void  displayMain(){
-        VehiclesController vehiclesController = new VehiclesController();
+        CarsController carsController = new CarsController();
+        TrucksController trucksController = new TrucksController();
         Scanner sc = new Scanner(System.in);
         final int CARS = 1;
         final int TRUCKS = 2;
@@ -16,8 +19,8 @@ public class RunApp {
         final  int EXITPROCESS = 4;
         boolean flag = true;
         while (flag){
-            System.out.println(" chose a  kind of vehicles");
-            System.out.println("---Model---" +
+            System.out.println(" Vehicles DuTys Managerent");
+            System.out.println("---Enter a call---" +
                     "\n 1. Cars" +
                     "\n 2. Trucks" +
                     "\n 3. Motorbikes" +
@@ -26,15 +29,15 @@ public class RunApp {
             switch (choice){
                 case  CARS:
                     System.out.println("Informations details CarsModels");
-                    vehiclesController.displayMenu();
+                    carsController.displayMenu();
                     break;
                 case TRUCKS:
                     System.out.println(" Informations details TrucksModels");
-                    vehiclesController.displayMenu();
+                    trucksController.displayMenu();
                     break;
                 case MOTORBIKES:
                     System.out.println(" Informations details MotorsModels");
-                    vehiclesController.displayMenu();
+                    carsController.displayMenu();
                     break;
                 case EXITPROCESS:
                     System.out.println("Exited");

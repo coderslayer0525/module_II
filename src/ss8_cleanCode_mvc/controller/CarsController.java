@@ -1,57 +1,56 @@
 package ss8_cleanCode_mvc.controller;
-import ss8_cleanCode_mvc.entity.Cars;
-import ss8_cleanCode_mvc.entity.Vehicles;
 
+import ss8_cleanCode_mvc.entity.Cars;
+
+import ss8_cleanCode_mvc.repository.CarsRepository;
+import ss8_cleanCode_mvc.repository.ICarsRepository;
 import ss8_cleanCode_mvc.service.CarsService;
 import ss8_cleanCode_mvc.service.ICarsService;
-import ss8_cleanCode_mvc.service.IVehiclesService;
 import ss8_cleanCode_mvc.view.CarsView;
-import ss8_cleanCode_mvc.view.VehiclesView;
-import ss8_cleanCode_mvc.service.VehiclesService;
 
 import java.util.ArrayList;
 import java.util.Scanner;
 
 public class CarsController {
-    private ICarsService carsService = new CarsService();
+    private ICarsService iCarsService = new CarsService();
 
-    public void displayMenu(){
-        Scanner scanner = new Scanner(System.in);
-        final  int DETAILSOFCAR = 1;
-        final int ADDNEWCARS = 2;
-        final int CARSINFORMATIONS = 3;
-        final int REMOVE = 4;
+    public void displayMenu() {
+
+        Scanner sc = new Scanner(System.in);
+        final int DISPLAYOPPTIONS = 1;
+        final int ADDCARS = 2;
+        final int SHOWVEHICLESINFORMATIONS = 3;
+        final int REMOVECARS = 4;
         boolean flag = true;
-        while (flag){
-            System.out.println("--DUTYS LIST--");
-            System.out.println(">-Select-<" +
+        while (flag) {
+            System.out.println("-<Global Vehicles Databases>- ");
+            System.out.println("----> Functions table <----" +
                     "\n 1. Cars Databases" +
-                    "\n 2. Add a new car" +
-                    "\n 3. Cars specifications" +
-                    "\n 4. Remove cars out of Databases" +
-                    "\n 5.Back Main Menu.");
-            int choice = Integer.parseInt(scanner.nextLine());
-            switch (choice){
-                case DETAILSOFCAR :
-                    System.out.println("danh sach xe oto tren he thong");
-                    ArrayList<Cars> carsArrayList = carsService.findAll();
+                    "\n 2. Add new Cars on Databases " +
+                    "\n 3. Vehicles Specifications" +
+                    "\n 4. Remove Vehicle out of Databases " +
+                    "\n 5. Back Main Menu.");
+            int choice = Integer.parseInt(sc.nextLine());
+            switch (choice) {
+                case DISPLAYOPPTIONS:
+                    System.out.println("--Hiện thị Danh sách phương tiện--");
+                    ArrayList<Cars> carsArrayList = iCarsService.findAll();
                     CarsView.display(carsArrayList);
                     break;
-                case ADDNEWCARS:
-                    System.out.println("them kieu xe vao he thong");
-                    System.out.println(" da them thanh cong");
+                case ADDCARS:
+                    System.out.println("-Thêm một Phương tiện mới-");
+                    System.out.println("Đã thêm.");
                     break;
-                case CARSINFORMATIONS:
-                    System.out.println("thong tin cua xe");
+                case SHOWVEHICLESINFORMATIONS:
+                    System.out.println("-xem thông số ky thuat-");
                     break;
-                case REMOVE:
-                    System.out.println(" xoa xe khoi he thong");
-                    System.out.println(" -da xoa-");
+                case REMOVECARS:
+                    System.out.println("-Gỡ/ xóa phương tiện-");
+                    System.out.println("--Đã xóa--");
                     break;
-                default:
+                default :
                     flag = false;
             }
         }
-
     }
 }

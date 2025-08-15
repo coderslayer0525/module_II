@@ -1,35 +1,34 @@
 package ss8_cleanCode_mvc.entity;
 
-public class Cars extends Vehicles implements Comparable<Cars> {
-    public static String model = " AUDI";
+public class Cars {
     private int id;
-    private int powerMachine;
+    private String  model;
 
     public Cars(){
     }
-    public Cars(int id){
-        super(id);
-    }
-    public Cars(int id, String model, int powerMachine){
-        super(id,model);
-        this.powerMachine = powerMachine;
-    }
     public Cars(int id, String model){
-        super(id,model);
+        this.id = id;
+        this.model = model;
     }
-    public int getPowerMachine(){
-        return powerMachine;
+    public Cars(int id){
+        this.id = id;
     }
-    public void  setPowerMachine(int powerMachine){
-        this.powerMachine = powerMachine;
+    public int getId(){
+        return  id;
+    }
+    public void  setId(int id){
+        this.id = id;
+    }
+    public String getModel(){
+        return  model;
+    }
+    public void  setModel(String model){
+        this.model = model;
     }
     @Override
     public String toString(){
-        return "Cars :" + super.toString() +"PowerMachine"+ powerMachine;
-    }
-
-    @Override
-    public int compareTo(Cars o) {
-        return 0;
+        return
+                "id=" + id +
+                        ", model'" + model;
     }
 }
