@@ -29,7 +29,7 @@ public class CarsController {
                     "\n 2. Add new Cars on Databases " +
                     "\n 3. Vehicles Specifications" +
                     "\n 4. Remove Vehicle out of Databases " +
-                    "\n 5. Back Main Menu.");
+                    "\n 5. Back to Menu.");
             int choice = Integer.parseInt(sc.nextLine());
             switch (choice) {
                 case DISPLAYOPPTIONS:

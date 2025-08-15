@@ -1,8 +1,10 @@
 package ss8_cleanCode_mvc.view;
 import ss8_cleanCode_mvc.controller.CarsController;
 import ss8_cleanCode_mvc.controller.TrucksController;
+import ss8_cleanCode_mvc.controller.MotorbikesController;
 
 import  java.util.Scanner;
+
 
 
 public class RunApp {
@@ -37,7 +39,8 @@ public class RunApp {
                     break;
                 case MOTORBIKES:
                     System.out.println(" Informations details MotorsModels");
-                    carsController.displayMenu();
+                    MotorbikesController motorbikesController = new MotorbikesController();
+                    motorbikesController.displayMenu();
                     break;
                 case EXITPROCESS:
                     System.out.println("Exited");
