@@ -40,7 +40,7 @@ public class CarsController {
                 case ADDCARS:
                     System.out.println("-Thêm một Phương tiện mới-");
                     Cars cars = CarsView.inputData();
-                    if(iCarsService.add(cars)) {
+                    if (iCarsService.add(cars)) {
                         System.out.println("Đã thêm.");
                     }
                     break;
@@ -49,11 +49,13 @@ public class CarsController {
                     break;
                 case REMOVECARS:
                     System.out.println("-Gỡ/ xóa phương tiện-");
+                    Cars cs = CarsView.inputData();
+                    if (iCarsService.delete(cs.getId())){
+                    System.out.println("-- da xoa--");
+                }
 
-                    System.out.println("--Đã xóa--");
-
-                    break;
-                default :
+                break;
+                default:
                     flag = false;
             }
         }

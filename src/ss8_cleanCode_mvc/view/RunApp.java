@@ -21,7 +21,7 @@ public class RunApp {
         final  int EXIT_PROCESS = 4;
         boolean flag = true;
         while (flag){
-            System.out.println(" Vehicles DuTys Managerent");
+            System.out.println(" Vehicles DuTys Management");
             System.out.println("---Enter a call---" +
                     "\n 1. Cars" +
                     "\n 2. Trucks" +
