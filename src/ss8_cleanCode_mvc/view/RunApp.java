@@ -18,7 +18,7 @@ public class RunApp {
         final int CARS = 1;
         final int TRUCKS = 2;
         final  int MOTORBIKES = 3;
-        final  int EXITPROCESS = 4;
+        final  int EXIT_PROCESS = 4;
         boolean flag = true;
         while (flag){
             System.out.println(" Vehicles DuTys Managerent");
@@ -42,7 +42,7 @@ public class RunApp {
                     MotorbikesController motorbikesController = new MotorbikesController();
                     motorbikesController.displayMenu();
                     break;
-                case EXITPROCESS:
+                case EXIT_PROCESS:
                     System.out.println("Exited");
                 default:
                     flag = false;

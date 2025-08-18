@@ -1,7 +1,7 @@
 package ss8_cleanCode_mvc.controller;
 
 import ss8_cleanCode_mvc.entity.Cars;
-
+import ss8_cleanCode_mvc.service.CarsService;
 import ss8_cleanCode_mvc.repository.CarsRepository;
 import ss8_cleanCode_mvc.repository.ICarsRepository;
 import ss8_cleanCode_mvc.service.CarsService;
@@ -12,7 +12,7 @@ import java.util.ArrayList;
 import java.util.Scanner;
 
 public class CarsController {
-    private ICarsService iCarsService = new CarsService();
+    private final ICarsService iCarsService = new CarsService();
 
     public void displayMenu() {
 
@@ -39,14 +39,19 @@ public class CarsController {
                     break;
                 case ADDCARS:
                     System.out.println("-Thêm một Phương tiện mới-");
-                    System.out.println("Đã thêm.");
+                    Cars cars = CarsView.inputData();
+                    if(iCarsService.add(cars)) {
+                        System.out.println("Đã thêm.");
+                    }
                     break;
                 case SHOWVEHICLESINFORMATIONS:
                     System.out.println("-xem thông số ky thuat-");
                     break;
                 case REMOVECARS:
                     System.out.println("-Gỡ/ xóa phương tiện-");
+
                     System.out.println("--Đã xóa--");
+
                     break;
                 default :
                     flag = false;

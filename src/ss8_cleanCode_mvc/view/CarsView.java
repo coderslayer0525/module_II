@@ -13,6 +13,7 @@ public class CarsView {
     public static Cars inputData(){
         System.out.println(" enter ID of Vehicles .");
         int id = Integer.parseInt(sc.nextLine());
+        System.out.println("enter model");
         String model =sc.nextLine();
         Cars cars = new Cars(id, model);
         return cars;
