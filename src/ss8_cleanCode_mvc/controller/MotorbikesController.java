@@ -34,7 +34,7 @@ public class MotorbikesController {
                     break;
                 case ADDNEWOBJECT:
                     System.out.println("Add new motorbike");
-                    System.out.println("Added");
+                        System.out.println("added");
                 case SPECIFICATIONSOBJECT:
                     System.out.println("Specifications");
                     break;
