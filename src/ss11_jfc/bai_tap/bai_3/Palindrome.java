@@ -7,25 +7,23 @@ import java.util.Stack;
 public class Palindrome {
     public static void main(String[] args) {
         String input = " Able was i ere saw Elba";
-        Stack<Character> stack = new Stack<>();
-        Queue<Character> queue = new LinkedList<>();
-        for (int i = 0; i < input.length(); i++) {
-            char c = input.charAt(i);
-            stack.push(c);
-            queue.add(c);
-        }
+        boolean isPalindrome = true;
+        int left = 0;
+        int right = input.length() - 1;
 
-        boolean newPalindrome = true;
-        while (!stack.isEmpty()) {
-            if (!stack.pop().equals(queue.remove())) {
-                newPalindrome = false;
+        while (left < right) {
+            if (input.charAt(left) != input.charAt(right)) {
+                isPalindrome = false;
                 break;
             }
+            left++;
+            right--;
         }
-        if (newPalindrome) {
-            System.out.println(" Palindrome");
+
+        if (isPalindrome) {
+            System.out.println("palindrome");
         } else {
-            System.out.println("not Palindrome");
+            System.out.println("not palindrome");
         }
     }
 }
