@@ -3,8 +3,12 @@ package ss8_cleanCode_mvc.repository;
 import ss8_cleanCode_mvc.entity.Trucks;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public interface ITrucksRepository {
-    ArrayList<Trucks> findAll();
+    List<Trucks> findAll();
     boolean add(Trucks trucks);
+    boolean delete(int id);
+    boolean update(int id, Trucks newTrucks);
+    Trucks findbyId(int id);
 }

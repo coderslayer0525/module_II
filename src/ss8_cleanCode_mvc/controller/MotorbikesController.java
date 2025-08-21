@@ -7,10 +7,11 @@ import ss8_cleanCode_mvc.service.MotorbikesService;
 import ss8_cleanCode_mvc.view.MotorbikesView;
 
 import java.util.ArrayList;
+import java.util.List;
 import java.util.Scanner;
 
 public class MotorbikesController {
-    private IMotorbikesService iMotorbikesService = new MotorbikesService();
+    private IMotorbikesService motorbikesService= new MotorbikesService();
     public void displayMenu(){
         Scanner scanner = new Scanner(System.in);
         final int MOTORMAJOR = 1;
@@ -29,8 +30,8 @@ public class MotorbikesController {
             switch (choice){
                 case MOTORMAJOR :
                     System.out.println("Display Motors datalist");
-                    ArrayList<Motorbikes> motorbikesArrayList = iMotorbikesService.findAll();
-                    MotorbikesView.display(motorbikesArrayList);
+                   List<Motorbikes> motorbikesArrayList =this.motorbikesService.findAll();
+                    MotorbikesView.display((ArrayList<Motorbikes>) motorbikesArrayList);
                     break;
                 case ADDNEWOBJECT:
                     System.out.println("Add new motorbike");

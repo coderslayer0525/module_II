@@ -10,11 +10,12 @@ import ss8_cleanCode_mvc.view.CarsView;
 import ss8_cleanCode_mvc.view.TrucksView;
 
 import java.util.ArrayList;
+import java.util.List;
 import java.util.Scanner;
 
 
 public class TrucksController {
-    private ITrucksService iTrucksService = new TrucksService();
+    private ITrucksService trucksService = new TrucksService();
 
     public void displayMenu() {
 
@@ -36,8 +37,8 @@ public class TrucksController {
             switch (choice) {
                 case DISPLAYOPPTIONS:
                     System.out.println("--Display trucks data list--");
-                    ArrayList<Trucks> trucksArrayList = iTrucksService.findAll();
-                    TrucksView.display(trucksArrayList);
+                    List<Trucks> trucksArrayList = this.trucksService.findAll();
+                    TrucksView.display((ArrayList<Trucks>) trucksArrayList);
                     break;
                 case ADDVEHICLES:
                     System.out.println("-add new trucks-");

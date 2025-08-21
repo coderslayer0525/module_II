@@ -1,5 +1,6 @@
 package ss8_cleanCode_mvc.controller;
 
+import ss12_product.repository.IProductRepository;
 import ss8_cleanCode_mvc.entity.Cars;
 import ss8_cleanCode_mvc.service.CarsService;
 import ss8_cleanCode_mvc.repository.CarsRepository;
@@ -8,11 +9,12 @@ import ss8_cleanCode_mvc.service.CarsService;
 import ss8_cleanCode_mvc.service.ICarsService;
 import ss8_cleanCode_mvc.view.CarsView;
 
-import java.util.ArrayList;
+import java.util.List;
 import java.util.Scanner;
 
 public class CarsController {
-    private final ICarsService iCarsService = new CarsService();
+    private final ICarsService carsService = new CarsService();
+
 
     public void displayMenu() {
 
@@ -33,14 +35,14 @@ public class CarsController {
             int choice = Integer.parseInt(sc.nextLine());
             switch (choice) {
                 case DISPLAYOPPTIONS:
-                    System.out.println("--Hiện thị Danh sách phương tiện--");
-                    ArrayList<Cars> carsArrayList = iCarsService.findAll();
-                    CarsView.display(carsArrayList);
+                    System.out.println("----Đây là chức năng hiển thị----------");
+                    List<Cars> carsList = this.carsService.findAll();
+                    CarsView.display(carsList);
                     break;
                 case ADDCARS:
                     System.out.println("-Thêm một Phương tiện mới-");
                     Cars cars = CarsView.inputData();
-                    if (iCarsService.add(cars)) {
+                    if (carsService.add(cars)) {
                         System.out.println("Đã thêm.");
                     }
                     break;
@@ -50,7 +52,7 @@ public class CarsController {
                 case REMOVECARS:
                     System.out.println("-Gỡ/ xóa phương tiện-");
                     Cars cs = CarsView.inputData();
-                    if (iCarsService.delete(cs.getId())){
+                    if (carsService.delete(cs.getId())){
                     System.out.println("-- da xoa--");
                 }
 

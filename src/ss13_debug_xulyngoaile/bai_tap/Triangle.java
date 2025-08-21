@@ -18,6 +18,6 @@ class Triangle {
     }
 
     public void display() {
-        System.out.println("Chính xác là 1 tam giác");
+        System.out.println("Chính xác là 1 tam giác :D :D");
     }
 }

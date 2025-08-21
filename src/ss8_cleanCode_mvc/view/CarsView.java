@@ -1,11 +1,12 @@
 package ss8_cleanCode_mvc.view;
 import ss8_cleanCode_mvc.entity.Cars;
-import java.util.ArrayList;
+
+import java.util.List;
 import java.util.Scanner;
 
 public class CarsView {
     private static Scanner sc = new Scanner(System.in);
-    public static void display(ArrayList<Cars> carsArrayList){
+    public static void display(List<Cars> carsArrayList){
         for(Cars cars : carsArrayList){
             System.out.println(cars);
         }

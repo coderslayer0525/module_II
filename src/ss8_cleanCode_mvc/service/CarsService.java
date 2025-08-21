@@ -5,12 +5,13 @@ import ss8_cleanCode_mvc.repository.CarsRepository;
 import ss8_cleanCode_mvc.repository.ICarsRepository;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public class CarsService implements ICarsService {
     private ICarsRepository carsRepository = new CarsRepository();
 
     @Override
-    public ArrayList<Cars> findAll() {
+    public List<Cars> findAll() {
         return carsRepository.findAll();
     }
 

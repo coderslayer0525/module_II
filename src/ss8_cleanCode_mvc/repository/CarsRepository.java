@@ -1,40 +1,39 @@
 package ss8_cleanCode_mvc.repository;
 
 import ss8_cleanCode_mvc.entity.Cars;
+import ss8_cleanCode_mvc.util.ReadAndWriteFile;
 
+import java.io.IOException;
 import java.util.ArrayList;
+import java.util.List;
 
 public class CarsRepository implements ICarsRepository {
-    private static ArrayList<Cars> carsList = new ArrayList<>();
-
-    static {
-        Cars trucks = new Cars();
-        Cars cars = new Cars();
-        Cars motorbikes = new Cars();
-        carsList.add(trucks);
-        carsList.add(cars);
-        carsList.add(motorbikes);
-    }
-
+    private final String CARS_FILE = "src/ss8_cleanCode_mvc/data/cars";
     @Override
-    public ArrayList<Cars> findAll() {
+    public List<Cars> findAll() {
+        List<Cars> carsList = new ArrayList<>();
+        try {
+            List<String> stringList = ReadAndWriteFile.readFileCSV(CARS_FILE);
+            String[] array = null;
+            for (String line: stringList) {
+                array = line.split(",");
+//                int id, String model
+                Cars cars = new Cars(Integer.parseInt(array[0]),array[1]);
+                carsList.add(cars);
+            }
+        } catch (IOException e) {
+            System.out.println("lỗi đọc file");
+        }
         return carsList;
     }
 
     @Override
-    public boolean add(Cars cars){
-        carsList.add(cars);
-        return true;
+    public boolean add(Cars cars) {
+        return false;
     }
 
     @Override
     public boolean delete(int id) {
-        for (Cars cars : carsList) {
-            if (cars.getId() == id) {
-                carsList.remove(cars);
-                return true;
-            }
-        }
         return false;
     }
 
@@ -47,4 +46,6 @@ public class CarsRepository implements ICarsRepository {
     public Cars findbyId(int id) {
         return null;
     }
+
+
 }

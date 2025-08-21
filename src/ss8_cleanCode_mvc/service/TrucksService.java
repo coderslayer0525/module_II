@@ -10,10 +10,25 @@ public class TrucksService  implements  ITrucksService{
     private ITrucksRepository trucksRepository = new TrucksRepository();
     @Override
     public ArrayList<Trucks> findAll(){
-        return trucksRepository.findAll();
+        return (ArrayList<Trucks>) trucksRepository.findAll();
     }
     @Override
     public  boolean add(Trucks trucks){
         return trucksRepository.add(trucks);
+    }
+
+    @Override
+    public boolean update(int id, Trucks newTrucks) {
+        return false;
+    }
+
+    @Override
+    public boolean delete(int id) {
+        return false;
+    }
+
+    @Override
+    public Trucks findbyId(int id) {
+        return null;
     }
 }
