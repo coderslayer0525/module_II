@@ -6,10 +6,14 @@ import java.util.ArrayList;
 import java.util.List;
 
 public interface IMotorbikesRepository {
-   List<Motorbikes> findAll();
+    List<Motorbikes> findAll();
+
     boolean add(Motorbikes motorbikes);
+
     boolean delete(int id);
+
     boolean update(int id, Motorbikes newMotorbikes);
+
     Motorbikes findbyId(int id);
 
 }

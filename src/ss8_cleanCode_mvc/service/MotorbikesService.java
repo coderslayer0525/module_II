@@ -9,12 +9,14 @@ import java.util.List;
 
 public class MotorbikesService implements IMotorbikesService {
     private IMotorbikesRepository motorbikesRepository = new MotorbikesRepository();
+
     @Override
-    public List<Motorbikes> findAll(){
+    public List<Motorbikes> findAll() {
         return motorbikesRepository.findAll();
     }
+
     @Override
-    public boolean add(Motorbikes motorbikes){
+    public boolean add(Motorbikes motorbikes) {
         return motorbikesRepository.add(motorbikes);
     }
 
