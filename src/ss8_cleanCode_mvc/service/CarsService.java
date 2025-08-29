@@ -22,18 +22,18 @@ public class CarsService implements ICarsService {
 
     @Override
     public boolean delete(int id) {
-        return false;
+        return carsRepository.delete(id);
     }
 
     @Override
     public boolean update(int id, Cars newCars, int slot) {
-        return false;
+        return carsRepository.update(id, newCars,slot);
     }
 
 
 
     @Override
     public Cars findbyId(int id) {
-        return null;
+        return carsRepository.findbyId(id);
     }
 }

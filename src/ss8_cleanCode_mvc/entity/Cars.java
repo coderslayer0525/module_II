@@ -1,9 +1,10 @@
 package ss8_cleanCode_mvc.entity;
 
+import java.util.Objects;
+
 public class Cars extends Vehicles implements Comparable<Cars> {
-    public static String brand = " BỘ CÔNG NÔNG";
-    public int id;
-    public int slot;
+    private static String BRAND = " BỘ CÔNG NÔNG";
+    private int slot;
 
     public Cars() {
     }
@@ -14,28 +15,43 @@ public class Cars extends Vehicles implements Comparable<Cars> {
     }
 
     public Cars(int id, String model) {
-
+        super(id, model);
+    }
+    public Cars(int id , String model, int slot) {
+        this(id, model);
+        setSlot(slot);
+    }
+    public static String getBRAND(){
+        return BRAND;
+    }
+    public  int getSlot(){
+        return slot;
+    }
+    public void setSlot(int slot){
+        if (slot<0){
+            throw new IllegalArgumentException("slot khong dc am");
+        }
+        this.slot = slot;
     }
 
     @Override
-    public Object getInfoToCSV() {
-        return this.getModel() + "," + this.getId() + ",";
+    public String getInfoToCSV() {
+        return getId() +","+ getModel()+","+slot;
     }
 
-    public Cars(int id, String model, int slot) {
-        super(id, model);
-        this.slot = slot;
+    public boolean equals(Object v){
+       if (this == v) return  true;
+       if (!(v instanceof Cars)) return false;
+       Cars cars =(Cars) v;
+       return getId() == cars.getId()
+               && v.equals(getModel());
     }
-    public double getSlot(){
-        return  slot;
+    @Override
+    public int hashCode() {
+        return Objects.hash(getId(), getModel());
     }
-    public void setSlot(int slot){
-        this.slot= slot;
-    }
-    public boolean equals(Vehicles v){
-        Vehicles vehicles = (Vehicles) v;
-        return this.getId() == vehicles.getId() && vehicles.getModel().equals(this.getModel());
-    }
+
+
 
     @Override
     public int compareTo(Cars cars) {

@@ -16,6 +16,7 @@ public class RunApp {
         TrucksController trucksController = new TrucksController();
         MotorbikesController motorbikesController = new MotorbikesController();
         Scanner sc = new Scanner(System.in);
+
         final int CARS = 1;
         final int TRUCKS = 2;
         final  int MOTORBIKES = 3;

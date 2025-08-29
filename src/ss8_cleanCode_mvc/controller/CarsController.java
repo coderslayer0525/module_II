@@ -19,9 +19,10 @@ public class CarsController {
     public void displayMenu() {
 
         Scanner sc = new Scanner(System.in);
-        final int DISPLAYOPPTIONS = 1;
-        final int ADDCARS = 2;
-        final int REMOVECARS = 3;
+        final int DISPLAY_OPPTIONS = 1;
+        final int ADD_CARS = 2;
+        final int REMOVE_CARS = 3;
+        final int EXIT = 4;
         boolean flag = true;
         while (flag) {
             System.out.println("-<LỚP XE OTO (4-7 GHẾ)>- ");
@@ -32,23 +33,22 @@ public class CarsController {
                     "\n 4. Quay lại bản quản ly chính. ");
             int choice = Integer.parseInt(sc.nextLine());
             switch (choice) {
-                case DISPLAYOPPTIONS:
+                case DISPLAY_OPPTIONS:
                     System.out.println("Danh sách xe đang bị thu giữ :");
                     List<Cars> carsList = this.carsService.findAll();
                     CarsView.display(carsList);
                     break;
-                case ADDCARS:
+                case ADD_CARS:
                     System.out.println("Thêm xe vào bãi.");
                     Cars cars = CarsView.inputData();
                     boolean isSucess = this.carsService.add(cars);
                     if (isSucess) {
                         System.out.println("Đã thêm.");
-                        break;
                     }else {
                         System.out.println("ERROR");
                     }
                     break;
-                case REMOVECARS:
+                case REMOVE_CARS:
                     System.out.println("-Xuất xe ra bãi.");
                     Cars cs = CarsView.inputData();
                     boolean isOk = this.carsService.delete(cs.getId());
@@ -57,10 +57,12 @@ public class CarsController {
                 }else {
                         System.out.println(" khong the tim thay thong tin cua xe");
                     }
-
                 break;
-                default:
+                case EXIT:
                     flag = false;
+                    break;
+                default:
+                    System.out.println("không hợp le");
             }
         }
     }
