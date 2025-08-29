@@ -21,7 +21,8 @@ public class TrucksView {
             int id = Integer.parseInt(sc.nextLine());
             int power = Integer.parseInt(sc.nextLine());
             String model = sc.nextLine();
-            Trucks trucks = new Trucks(id, power, model);
+            double ranger = 5.0;
+            Trucks trucks = new Trucks(id, String.valueOf(power), ranger);
             return trucks;
         } catch (NumberFormatException e) {
             System.out.println("Lỗi nhập dữ liệu: " + e.getMessage());

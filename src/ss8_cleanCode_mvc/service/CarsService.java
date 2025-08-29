@@ -26,9 +26,11 @@ public class CarsService implements ICarsService {
     }
 
     @Override
-    public boolean update(int id, Cars newCars) {
+    public boolean update(int id, Cars newCars, int slot) {
         return false;
     }
+
+
 
     @Override
     public Cars findbyId(int id) {

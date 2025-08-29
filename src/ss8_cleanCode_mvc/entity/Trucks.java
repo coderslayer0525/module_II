@@ -1,51 +1,49 @@
 package ss8_cleanCode_mvc.entity;
 
-public class Trucks {
-    private int id;
-    private String model;
-    private int power;
+public class Trucks extends Vehicles implements Comparable<Trucks> {
+    public static String brand = " OE OE OE";
+    public int id;
+    public double ranger;
 
     public Trucks() {
     }
 
-    public Trucks(int id, int power, String model) {
-        this.id = id;
-        this.power = power;
-        this.model = model;
+    public Trucks(int id, String model, double ranger) {
+        super(id, model);
+        this.ranger = ranger;
     }
 
-    public Trucks(int id) {
-        this.id = id;
+    public Trucks(int id, String brand, int ranger) {
+        super(id, brand);
     }
 
-    public int getId() {
-        return id;
+    public Trucks(int id, int ranger, String model) {
+
     }
 
-    public void setId(int id) {
-        this.id = id;
+    public double getRanger() {
+        return ranger;
     }
 
-    public int getPower() {
-        return power;
-    }
-
-    public void setPower(int power) {
-        this.power = power;
-    }
-
-    public String getModel() {
-        return model;
-    }
-
-    public void setModel(String model) {
-        this.model = model;
+    public void setRanger(double ranger) {
+        this.ranger = ranger;
     }
 
     @Override
-    public String toString() {
-        return "id=" + id +
-                ",model'" + model +
-                ", power'" + power;
+    public int compareTo(Trucks o) {
+        return this.getId() - o.getId();
     }
+
+    @Override
+    public Object getInfoToCSV() {
+        return this.getModel() + "," + this.getId() + "," + this.getRanger() + ",";
+    }
+    @Override
+    public String toString(){
+        return "Trucks{"+
+                "id="+getId()+
+                ",model="+getModel()+
+                ",ranger="+getRanger()+
+                '}';
+}
 }

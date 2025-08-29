@@ -21,40 +21,42 @@ public class CarsController {
         Scanner sc = new Scanner(System.in);
         final int DISPLAYOPPTIONS = 1;
         final int ADDCARS = 2;
-        final int SHOWVEHICLESINFORMATIONS = 3;
-        final int REMOVECARS = 4;
+        final int REMOVECARS = 3;
         boolean flag = true;
         while (flag) {
-            System.out.println("-<Global Vehicles Databases>- ");
-            System.out.println("----> Functions table <----" +
-                    "\n 1. Cars Databases" +
-                    "\n 2. Add new Cars on Databases " +
-                    "\n 3. Vehicles Specifications" +
-                    "\n 4. Remove Vehicle out of Databases " +
-                    "\n 5. Back to Menu.");
+            System.out.println("-<LỚP XE OTO (4-7 GHẾ)>- ");
+            System.out.println("CHọn chức năng :" +
+                    "\n 1. Danh sach xe đang trong bãi:" +
+                    "\n 2. Thêm xe vào bãi : " +
+                    "\n 3. Xuất xe khỏi bãi : " +
+                    "\n 4. Quay lại bản quản ly chính. ");
             int choice = Integer.parseInt(sc.nextLine());
             switch (choice) {
                 case DISPLAYOPPTIONS:
-                    System.out.println("----Đây là chức năng hiển thị----------");
+                    System.out.println("Danh sách xe đang bị thu giữ :");
                     List<Cars> carsList = this.carsService.findAll();
                     CarsView.display(carsList);
                     break;
                 case ADDCARS:
-                    System.out.println("-Thêm một Phương tiện mới-");
+                    System.out.println("Thêm xe vào bãi.");
                     Cars cars = CarsView.inputData();
-                    if (carsService.add(cars)) {
+                    boolean isSucess = this.carsService.add(cars);
+                    if (isSucess) {
                         System.out.println("Đã thêm.");
+                        break;
+                    }else {
+                        System.out.println("ERROR");
                     }
                     break;
-                case SHOWVEHICLESINFORMATIONS:
-                    System.out.println("-xem thông số ky thuat-");
-                    break;
                 case REMOVECARS:
-                    System.out.println("-Gỡ/ xóa phương tiện-");
+                    System.out.println("-Xuất xe ra bãi.");
                     Cars cs = CarsView.inputData();
-                    if (carsService.delete(cs.getId())){
-                    System.out.println("-- da xoa--");
-                }
+                    boolean isOk = this.carsService.delete(cs.getId());
+                    if (isOk){
+                        System.out.println(" Xoa thanh cong ");
+                }else {
+                        System.out.println(" khong the tim thay thong tin cua xe");
+                    }
 
                 break;
                 default:

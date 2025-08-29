@@ -40,9 +40,10 @@ public class TrucksRepository implements  ITrucksRepository {
     }
 
     @Override
-    public boolean update(int id, Trucks newTrucks) {
-        return false;
+    public boolean update(int id, Trucks newTrucks, double ranger) {
+        return true;
     }
+
 
     @Override
     public Trucks findbyId(int id) {

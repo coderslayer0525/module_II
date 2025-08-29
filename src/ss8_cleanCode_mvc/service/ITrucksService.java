@@ -6,9 +6,13 @@ import java.util.ArrayList;
 import java.util.List;
 
 public interface ITrucksService {
-   List<Trucks> findAll();
+    List<Trucks> findAll();
+
     boolean add(Trucks trucks);
-    boolean update(int id, Trucks newTrucks);
+
+    boolean update(int id, Trucks newTrucks, int ranger);
+
     boolean delete(int id);
+
     Trucks findbyId(int id);
 }

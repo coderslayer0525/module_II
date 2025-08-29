@@ -16,32 +16,28 @@ public class MotorbikesController {
         Scanner scanner = new Scanner(System.in);
         final int MOTORMAJOR = 1;
         final int ADDNEWOBJECT = 2;
-        final int SPECIFICATIONSOBJECT = 3;
-        final int DELOBJECT = 4;
+        final int DELOBJECT = 3;
         boolean flag = true;
         while (flag){
-            System.out.println("---->Call of Duty<--- " +
-                    "\n 1. Motors majors" +
-                    "\n 2. Add new Motor" +
-                    "\n 3. factory Specificatons" +
-                    "\n 4. Remove motor" +
-                    "\n 5. Back to menu");
+            System.out.println("----Chuc nang vơi Motor<--- " +
+                    "\n 1. Hiển thị danh sách xe may đang bị thu giữ : "+
+                    "\n 2. Thêm xe vào bãi:" +
+                    "\n 3. Xuất xe khỏi bãi:" +
+                    "\n 4. Back to menu");
             int choice = Integer.parseInt(scanner.nextLine());
             switch (choice){
                 case MOTORMAJOR :
-                    System.out.println("Display Motors datalist");
-                   List<Motorbikes> motorbikesArrayList =this.motorbikesService.findAll();
-                    MotorbikesView.display((ArrayList<Motorbikes>) motorbikesArrayList);
+                    System.out.println("Danh sách xe đang bị luộc :");
+                   List<Motorbikes> motorbikesList =this.motorbikesService.findAll();
+                    MotorbikesView.display(motorbikesList);
                     break;
                 case ADDNEWOBJECT:
-                    System.out.println("Add new motorbike");
-                        System.out.println("added");
-                case SPECIFICATIONSOBJECT:
-                    System.out.println("Specifications");
-                    break;
+                    System.out.println("Tiến hành siết xe.");
+                        System.out.println("siết xong");
+               break;
                 case DELOBJECT:
-                    System.out.println("Remove motor");
-                    System.out.println("Done");
+                    System.out.println("Đang luộc phụ tùng xe máy.");
+                    System.out.println("luộc xong");
                     break;
                 default:
                     flag = false;

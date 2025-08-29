@@ -18,29 +18,37 @@ public class MotorbikesRepository implements IMotorbikesRepository{
             String[] array = null;
             for (String line: stringList) {
                 array = line.split(",");
-//                int id, String model
                 Motorbikes motorbikes = new Motorbikes(Integer.parseInt(array[0]),array[1],Integer.parseInt(array[2]));
                 motorbikesList.add(motorbikes);
             }
-        } catch (IOException e) {
+        } catch (Exception e) {
             System.out.println("lỗi đọc file");
         }
         return motorbikesList;
     }
     @Override
     public boolean add(Motorbikes motorbikes){
+        List<String> stringList = new ArrayList<>();
+        stringList.add((String) motorbikes.getInfoToCSV());
+        try{
+            ReadAndWriteFile.writeFileCSV(MOTORS_FILE,stringList,true);
+        } catch (Exception e){
+            System.out.println("Lôi ghi file");
+            return  false;
+        }
         return true;
     }
 
     @Override
     public boolean delete(int id) {
-        return false;
+        return true;
     }
 
     @Override
-    public boolean update(int id, Motorbikes newMotorbikes) {
+    public boolean update(int id, Motorbikes newMotorbikes, int power) {
         return true;
     }
+
 
     @Override
     public Motorbikes findbyId(int id) {

@@ -20,8 +20,8 @@ public class TrucksService implements ITrucksService {
     }
 
     @Override
-    public boolean update(int id, Trucks newTrucks) {
-        return false;
+    public boolean update(int id, Trucks newTrucks,int ranger) {
+        return true;
     }
 
     @Override

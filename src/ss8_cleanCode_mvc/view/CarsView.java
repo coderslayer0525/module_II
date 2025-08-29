@@ -12,11 +12,16 @@ public class CarsView {
         }
     }
     public static Cars inputData(){
-        System.out.println(" enter ID of Vehicles .");
+        System.out.println(" ID xe:");
         int id = Integer.parseInt(sc.nextLine());
-        System.out.println("enter model");
+        System.out.println(" Model xe :");
         String model =sc.nextLine();
-        Cars cars = new Cars(id, model);
+        System.out.println(" Nhap so ghe");
+       int slot = Integer.parseInt(sc.nextLine());
+        Cars cars = new Cars(id, model,slot);
         return cars;
+    }
+    public static void display(Cars cars){
+        System.out.println(cars);
     }
 }

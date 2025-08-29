@@ -26,8 +26,8 @@ public class MotorbikesService implements IMotorbikesService {
     }
 
     @Override
-    public boolean update(int id, Motorbikes newMotorbikes) {
-        return false;
+    public boolean update(int id, Motorbikes newMotorbikes,int power) {
+        return true;
     }
 
     @Override

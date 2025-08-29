@@ -12,7 +12,7 @@ public interface IMotorbikesRepository {
 
     boolean delete(int id);
 
-    boolean update(int id, Motorbikes newMotorbikes);
+    boolean update(int id, Motorbikes newMotorbikes,int power);
 
     Motorbikes findbyId(int id);
 

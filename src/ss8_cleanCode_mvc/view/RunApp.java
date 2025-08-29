@@ -14,6 +14,7 @@ public class RunApp {
     public static void  displayMain(){
         CarsController carsController = new CarsController();
         TrucksController trucksController = new TrucksController();
+        MotorbikesController motorbikesController = new MotorbikesController();
         Scanner sc = new Scanner(System.in);
         final int CARS = 1;
         final int TRUCKS = 2;
@@ -21,25 +22,24 @@ public class RunApp {
         final  int EXIT_PROCESS = 4;
         boolean flag = true;
         while (flag){
-            System.out.println(" Vehicles DuTys Management");
-            System.out.println("---Enter a call---" +
-                    "\n 1. Cars" +
-                    "\n 2. Trucks" +
-                    "\n 3. Motorbikes" +
-                    "\n 4. Exit");
+            System.out.println(" BÃI TẬP KẾT/ THU GIỮ PHƯƠNG TIỆN VI PHẠM ");
+            System.out.println("--  LOẠI PHƯƠNG TIỆN ĐANG TÌM :   " +
+                    "\n 1. Xe oto. " +
+                    "\n 2. Xe bán tải." +
+                    "\n 3. Xe gắn máy." +
+                    "\n 4. Thoát Chương trình.");
             int choice = Integer.parseInt(sc.nextLine());
             switch (choice){
                 case  CARS:
-                    System.out.println("Informations details CarsModels");
+                    System.out.println("QUẢN LÝ XE OTO ");
                     carsController.displayMenu();
                     break;
                 case TRUCKS:
-                    System.out.println(" Informations details TrucksModels");
+                    System.out.println(" QUẢN LÝ XE BÁN TẢI");
                     trucksController.displayMenu();
                     break;
                 case MOTORBIKES:
-                    System.out.println(" Informations details MotorsModels");
-                    MotorbikesController motorbikesController = new MotorbikesController();
+                    System.out.println(" QUẢN LÝ XE GẮN MÁY ");
                     motorbikesController.displayMenu();
                     break;
                 case EXIT_PROCESS:

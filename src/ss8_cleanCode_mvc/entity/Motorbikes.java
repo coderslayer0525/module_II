@@ -1,48 +1,50 @@
 package ss8_cleanCode_mvc.entity;
 
-public class Motorbikes {
-    private int id;
-    private String model;
-    private int speed;
-    public Motorbikes(){
+public  class Motorbikes extends Vehicles implements Comparable<Motorbikes>{
+    public static String brand = " BO BO BO";
+    public int id;
+    public double power;
 
-    }
-    public Motorbikes(int id,String model,int speed){
-        this.id = id;
-        this.model = model;
-        this.speed = speed;
+    public Motorbikes(){
     }
     public Motorbikes(int id){
-        this.id = id;
+        super(id);
     }
 
-    public int getId() {
-        return id;
+    @Override
+    public Object getInfoToCSV() {
+        return this.getModel()+","+ this.getId()+",";
     }
 
-    public void setId(int id) {
-        this.id = id;
+    public Motorbikes(int id, String model,double power){
+        super(id,model);
+        this.power = power;
+    }
+    public Motorbikes(int id, String brand, int power){
+        super(id,brand);
+    }
+    public double getPower(){
+        return power;
+    }
+    public void setPower(double power){
+        this.power = power;
     }
 
-    public int getSpeed() {
-        return speed;
+    @Override
+    public boolean equals(Object obj) {
+        return super.equals(obj);
     }
 
-    public void setSpeed(int speed) {
-        this.speed = speed;
-    }
-
-    public String getModel() {
-        return model;
-    }
-
-    public void setModel(String model) {
-        this.model = model;
+    @Override
+    public int compareTo(Motorbikes o) {
+        return this.getId() - o.getId();
     }
     @Override
     public String toString(){
-        return "id=" + id +
-                ", model'" + model +
-                ", speed'"+ speed;
+        return "Motor{" +
+                "id="+ getId() +
+                ",model="+getModel()+
+                ", power="+ getPower()+
+                '}';
     }
 }

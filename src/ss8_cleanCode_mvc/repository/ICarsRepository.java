@@ -12,7 +12,7 @@ public interface ICarsRepository {
 
     boolean delete(int id);
 
-    boolean update(int id, Cars newCars);
+    boolean update(int id, Cars newCars, double slot);
 
     Cars findbyId(int id);
 }
