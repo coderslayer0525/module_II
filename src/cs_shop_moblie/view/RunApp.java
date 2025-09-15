@@ -38,7 +38,6 @@ disPlayMenu();
                     System.out.println("EXITed");
                 default:
                     flag = false;
-
             }
 
         }
