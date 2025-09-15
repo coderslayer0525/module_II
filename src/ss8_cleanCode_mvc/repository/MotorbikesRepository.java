@@ -9,7 +9,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class MotorbikesRepository implements IMotorbikesRepository{
-   private final String MOTORS_FILE = "src/ss8_cleanCode_mvc/data/motors";
+   private final String MOTORS_FILE = "ss8_cleanCode_mvc/data/motors";
     @Override
     public List<Motorbikes> findAll(){
         List<Motorbikes> motorbikesList = new ArrayList<>();

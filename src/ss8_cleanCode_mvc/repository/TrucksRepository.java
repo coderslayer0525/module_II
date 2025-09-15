@@ -9,7 +9,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class TrucksRepository implements  ITrucksRepository {
-    private final String TRUCKS_FILE ="src/ss8_cleanCode_mvc/data/trucks";
+    private final String TRUCKS_FILE ="ss8_cleanCode_mvc/data/trucks";
     @Override
     public List<Trucks> findAll(){
         List<Trucks> trucksList = new ArrayList<>();

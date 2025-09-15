@@ -8,7 +8,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class CarsRepository implements ICarsRepository {
-    private final String CARS_FILE = "src/ss8_cleanCode_mvc/data/cars";
+    private final String CARS_FILE = "ss8_cleanCode_mvc/data/cars";
 
     @Override
     public List<Cars> findAll() {
