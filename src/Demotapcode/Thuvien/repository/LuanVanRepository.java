@@ -41,9 +41,9 @@ public class LuanVanRepository  implements ILuanVanRepository{
 
     @Override
     public LuanVan findById(int MaTaiLieu) {
-        for (LuanVan luanVan : luanVanArrayList){
-            if (luanVan.getMaTaiLieu() == luanVan.getMaTaiLieu()){
-                return luanVan;
+        for (int i = 0; i < luanVanArrayList.size(); i++) {
+            if(luanVanArrayList.get(i).getMaTaiLieu() == MaTaiLieu){
+                return luanVanArrayList.get(i);
             }
         }
         return null;
