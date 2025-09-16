@@ -1,7 +1,9 @@
 package Demotapcode.Thuvien.controller;
 
+import Demotapcode.Thuvien.entity.LuanVan;
 import Demotapcode.Thuvien.service.ISachService;
 import Demotapcode.Thuvien.service.SachService;
+import Demotapcode.Thuvien.view.LuanVanView;
 import Demotapcode.Thuvien.view.SachView;
 import Demotapcode.Thuvien.entity.Sach;
 
@@ -16,62 +18,64 @@ public class SachController {
 
         final int ADD_FILES = 1;
         final int DISPLAY_FILES = 2;
-        final int DELETE_FILIES = 3;
+        final int DELETE_FILES = 3;
         final int FIND_FILES = 4;
         final int BACK = 5;
         boolean flag = true;
         while (flag){
-            System.out.println("Sach Manager");
-            System.out.println("chon chuc nang " +
-                    "\n 1. Them Sach moi." +
-                    "\n 2. Hien thi thu vien sach" +
-                    "\n 3. xoa Sach" +
-                    "\n 4. Tim kiem Sach" +
+            System.out.println("sach Manager");
+            System.out.println(" chon chuc nang :" +
+                    "\n 1. Them moi sach" +
+                    "\n 2. Hien Thi Thu vien sach" +
+                    "\n 3. Xoa sach" +
+                    "\n 4. Tim kiem sach" +
                     "\n 5. Quay lai trang quan ly chinh");
             int choice = Integer.parseInt(sc.nextLine());
             switch (choice){
                 case ADD_FILES :
-                    System.out.println("them moi Sach");
+                    System.out.println("Them moi Sach");
                     Sach sach = SachView.inputData();
-                    boolean yes = this.sachService.add(sach);
-                    if (yes){
+                    boolean isOk = this.sachService.add(sach);
+                    if (isOk){
                         System.out.println("Da Them");
                     }else {
                         System.out.println("ERROR");
                     }
                     break;
                 case DISPLAY_FILES:
-                    System.out.println("Hien Thi Thu vien Sach");
-                    ArrayList<Sach> sachArrayList = this.sachService.findAll();
+                    System.out.println("danh sach sach trong thu vien");
+                    ArrayList<Sach> sachArrayList= this.sachService.findAll();
                     SachView.display(sachArrayList);
                     break;
-                case DELETE_FILIES:
-                    System.out.println("xoa Sach");
+                case DELETE_FILES:
+                    System.out.println("xoa sach");
                     Sach cs = SachView.inputData();
-                    boolean isOk= this.sachService.delete(cs.getMaTaiLieu());
-                    if (isOk){
-                        System.out.println("xoa Thanh cong");
+                    boolean isNot = this.sachService.delete(cs.getMaTaiLieu());
+                    if (isNot){
+                        System.out.println("Xoa Thanh Cong");
                     }else {
-                        System.out.println("khong tim thay thong tin cua Sach");
+                        System.out.println("khong the tim thay thong tin cua sach");
                     }
                     break;
                 case FIND_FILES:
-                    System.out.println("tim Sex");
+                    System.out.println("Tim sach");
                     Sach scanner = SachView.inputData();
                     int MaTaiLieu = Integer.parseInt(scanner.nextline());
                     Sach found = sachService.findById(MaTaiLieu);
                     if (found != null){
-                        System.out.println("Tim thay "+found);
+                        System.out.println("tim thay" + found);
                     }else {
-                        System.out.println("khong tim thay sach");
+                        System.out.println("khong tim thay  sach");
                     }
                     break;
                 case BACK:
                     flag = false;
                     break;
                 default:
-                    System.out.println("lua chon khong hop le");
+                    System.out.println("Lua chon khong hoop le");
+
             }
         }
     }
+
 }

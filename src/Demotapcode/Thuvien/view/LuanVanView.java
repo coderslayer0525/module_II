@@ -23,19 +23,22 @@ public class LuanVanView {
             System.out.println("Ma Tai Lieu");
             int maTaiLieu = Integer.parseInt(sc.nextLine());
 
-            System.out.println("Nguoi huong Dan");
-            String nguoiHuongDan = sc.nextLine();
-
-            System.out.println("Ten Tai Lieu: ");
+            System.out.println("Ten Tai Lieu");
             String tenTaiLieu = sc.nextLine();
 
-            System.out.println("Nam Xuat Ban: ");
+            System.out.println("Nam Xuat Ban ");
             int namXuatBan = Integer.parseInt(sc.nextLine());
 
-            System.out.println("Ten Tac Gia: ");
+            System.out.println("Ten Tac Gia ");
             String tenTacGia = sc.nextLine();
 
-            return new LuanVan(maTaiLieu, tenTaiLieu, namXuatBan, tenTacGia, nguoiHuongDan, "Ngành học mặc định");
+            System.out.println("Truong ");
+            String truong = sc.nextLine();
+
+            System.out.println("Nguoi Huong Dan");
+            String nguoiHuongDan = sc.nextLine();
+
+            return new LuanVan(maTaiLieu,tenTaiLieu,namXuatBan,tenTacGia,truong,nguoiHuongDan);
         } catch (NumberFormatException e) {
             return null;
         }

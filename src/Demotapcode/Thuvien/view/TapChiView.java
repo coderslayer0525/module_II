@@ -23,19 +23,22 @@ public class TapChiView {
             System.out.println("Ma Tai Lieu");
             int maTaiLieu = Integer.parseInt(scanner.nextLine());
 
-            System.out.println("So Phat Hanh");
-            int soPhatHanh = Integer.parseInt(scanner.nextLine());
+            System.out.println("Ten Tai Lieu");
+           String tenTaiLieu = scanner.nextLine();
 
-            System.out.println("Thang phat Hanh");
-            int thangPhatHanh = Integer.parseInt(scanner.nextLine());
+            System.out.println("Nam Xuat Ban");
+            int namXuatBan = Integer.parseInt(scanner.nextLine());
 
             System.out.println(" Ten Tac Gia");
             String tenTacGia = scanner.nextLine();
 
-            System.out.println("Nam Xuat Ban");
-            int namXuatban = Integer.parseInt(scanner.nextLine());
+            System.out.println("So Phat Hanh");
+            int soPhatHanh = Integer.parseInt(scanner.nextLine());
 
-            return new TapChi(maTaiLieu,tenTacGia,soPhatHanh,thangPhatHanh,namXuatban);
+            System.out.println("Thang Phat Hanh");
+            int thangPhatHanh = Integer.parseInt(scanner.nextLine());
+
+            return new TapChi(maTaiLieu,tenTaiLieu,namXuatBan,tenTacGia,soPhatHanh,thangPhatHanh);
         }catch (NumberFormatException e){
             return null;
         }
