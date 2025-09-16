@@ -59,9 +59,10 @@ public class SachController {
                     break;
                 case FIND_FILES:
                     System.out.println("Tim sach");
-                    Sach scanner = SachView.inputData();
-                    int MaTaiLieu = Integer.parseInt(scanner.nextline());
-                    Sach found = sachService.findById(MaTaiLieu);
+                    System.out.println("nhap ma Tai Lieu");
+                   Scanner scanner = new Scanner(System.in);
+                   int maTaiLieu = scanner.nextInt();
+                    Sach found = sachService.findById(maTaiLieu);
                     if (found != null){
                         System.out.println("tim thay" + found);
                     }else {

@@ -59,9 +59,10 @@ public class TapChiController {
                     break;
                 case FIND_FILES:
                     System.out.println("Tim Tap Chi");
-                    TapChi scanner = TapChiView.inputData();
-                    int MaTaiLieu = Integer.parseInt(scanner.nextline());
-                    TapChi found = tapChiService.findById(MaTaiLieu);
+                    System.out.println("nhap ma Tai Lieu");
+                   Scanner scanner = new Scanner(System.in);
+                   int maTaiLieu = scanner.nextInt();
+                    TapChi found = tapChiService.findById(maTaiLieu);
                     if (found != null){
                         System.out.println("tim thay" + found);
                     }else {

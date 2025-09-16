@@ -57,9 +57,10 @@ public class LuanVanController {
                     break;
                 case FIND_FILES:
                     System.out.println("Tim Luan Van");
-                    LuanVan scanner = LuanVanView.inputData();
-                   int MaTaiLieu = Integer.parseInt(scanner.nextline());
-                   LuanVan found = luanVanService.findById(MaTaiLieu);
+                    System.out.println("nhap Ma tai Lieu");
+                   Scanner scanner = new Scanner(System.in);
+                   int maTaiLieu = scanner.nextInt();
+                   LuanVan found = luanVanService.findById(maTaiLieu);
                    if (found != null){
                        System.out.println("tim thay" + found);
                    }else {
